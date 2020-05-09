@@ -1,0 +1,552 @@
+00:00
+hey there how's it going everybody in
+00:01
+the last video we learned how to create
+00:03
+a simple class and how to create
+00:05
+instances of that class we learned a lot
+00:07
+about instance variables which are used
+00:10
+for data that is unique to each instance
+00:12
+so instance variables are these here
+00:14
+that are set using the self argument
+00:17
+that we saw before so for example in the
+00:20
+employee class that we created we set
+00:22
+the names the email and the pay in our
+00:25
+Annette method and those are set for
+00:27
+each instance of the employee that we
+00:29
+create and I briefly mentioned class
+00:31
+variables in the last video but we
+00:33
+didn't go into detail and that's what
+00:35
+we're going to learn about in this video
+00:36
+so class variables are variables that
+00:39
+are shared among all instances of a
+00:41
+class
+00:41
+so while instance variables can be
+00:43
+unique for each instance like our names
+00:46
+and email and pay class variables should
+00:49
+be the same for each instance so if you
+00:51
+look here at our employee class what
+00:53
+kind of data would we want to be shared
+00:55
+among all employees well there's a lot
+00:58
+of different ideas that we could
+01:00
+probably come up with but for this
+01:01
+example let's say that our company gives
+01:03
+annual raises every year now the amount
+01:06
+can change from year to year but
+01:08
+whatever that amount is it's going to be
+01:10
+the same for all employees so that would
+01:12
+be a good candidate for a class variable
+01:14
+now before we actually create that class
+01:16
+variable let's first hard code this in
+01:19
+and see why the class variables would be
+01:21
+a better use case so I'm going to create
+01:23
+a method down here called apply raise
+01:26
+and remember our methods automatically
+01:29
+take in the instance which we are going
+01:31
+to call self now within this apply raise
+01:34
+I'm going to do a self dot pay and I'm
+01:38
+going to set this equal to an integer so
+01:41
+that we have a whole number and I'm
+01:43
+gonna do self dot pay times 1 point
+01:47
+let's just make this 4% so now if I was
+01:50
+to test this down here on an instance
+01:52
+then I can print out the employee 1 dot
+01:56
+pay and let me go ahead and copy this
+01:59
+twice and between here I'm going to do
+02:02
+an employee 1 dot apply raise now if I
+02:07
+go ahead and run this Oh actually forgot
+02:09
+to put in the parenthesis there so now
+02:11
+if I go ahead and run this
+02:13
+you can see that I printed out the pay
+02:16
+then we applied the raise and it added
+02:18
+4% onto our pay so we can see that it
+02:21
+worked but there are a couple of things
+02:23
+wrong here so first it would be nice if
+02:26
+we could access the raise amount by
+02:29
+doing something like employee 1 dot
+02:32
+raise amount or since it would apply to
+02:36
+the entire class we should also be able
+02:38
+to get the raise amount by doing
+02:41
+employee dot raise amount now that raise
+02:44
+amount attribute doesn't currently exist
+02:46
+so we can't see that it is 4% and also
+02:50
+what if I wanted to easily update that
+02:53
+4% amount so right now it's kind of
+02:56
+hidden within this method and for all I
+02:59
+know it could be in multiple places
+03:01
+throughout our code so we don't want to
+03:04
+have to manually go in if we wanted to
+03:05
+update this 4% we wouldn't want to have
+03:08
+to manually go in and change these and
+03:10
+multiple locations
+03:11
+so let's instead pull this 4% out into a
+03:15
+class variable and that's as easy as
+03:18
+going up here to the top of the class
+03:20
+and just saying that we want a raise
+03:23
+amount equal to one point and we'll just
+03:26
+do that at 4% still so now instead of
+03:29
+hard-coding this 4% down here and our
+03:32
+apply raise method now let's go ahead
+03:34
+and use this class variable now you
+03:37
+might expect us to just be able to type
+03:40
+in raise amount here but if I save that
+03:44
+and I'm going to comment out these lines
+03:47
+here so if I save that and run it you
+03:49
+can see that I got a name error and it
+03:52
+says that raise amount is not defined
+03:55
+and that's because when we access these
+03:57
+class variables we need to either access
+04:00
+them through the class itself or an
+04:02
+instance of the class so within the
+04:05
+apply raise I could either say employee
+04:08
+not raise amount and if I save that and
+04:11
+run it then you can see that that works
+04:13
+or I can also access through the
+04:17
+instance so I can do self dot raise
+04:19
+amount and if I run that then you can
+04:21
+see that that works as well now that
+04:23
+might be a little confusing to you
+04:24
+because if these are class variables
+04:27
+and why can we access them from our
+04:29
+instance so let me print out a few lines
+04:32
+here to get a better idea of what's
+04:34
+going on so I'm going to go ahead and
+04:36
+remove all of these lines here actually
+04:39
+I'm going to keep this and I'm going to
+04:41
+print out the employee one dot rays
+04:44
+amount and I'm also going to print the
+04:48
+employee that rays amount and also just
+04:52
+to see all of our instances here I'm
+04:54
+going to also do the employee two trays
+04:58
+amount so that we can see all of them
+05:00
+together so now if I go ahead and print
+05:04
+these out you can see that I can access
+05:07
+this class variable from both my class
+05:09
+itself as well as from both instances
+05:12
+now what's going on here
+05:14
+is that when we try to access an
+05:16
+attribute on an instance it will first
+05:18
+check if the instance contains that
+05:20
+attribute and if it doesn't then it will
+05:23
+see if the class or any class that it
+05:25
+inherits from contains that attribute so
+05:28
+when we access rays amount from our
+05:31
+instances here they don't actually have
+05:33
+that attribute themselves they're
+05:35
+accessing the class's raiseamount
+05:37
+attribute now there's a little trick
+05:39
+that we can do here to get a better idea
+05:41
+of what's going on so I'm going to go
+05:43
+ahead and print out the namespace of
+05:46
+employee one and we can do that by
+05:49
+printing out employee one double
+05:52
+underscore vicked
+05:53
+it's now if I run this if I were to
+05:56
+access these names or email or pay then
+06:00
+these are the values that they would
+06:02
+return but you can see that there's no
+06:04
+raise amount here in this list now if I
+06:08
+print it out the employee dict and run
+06:11
+that now we're gonna get a few things
+06:13
+here that we don't necessarily care
+06:15
+about but if we look down here
+06:18
+and we can see that the class does
+06:20
+contain this raise amount attribute and
+06:22
+that is the value that our instances see
+06:25
+when we access that raise amount
+06:27
+attribute from our instances now let me
+06:30
+show you an important concept here so
+06:32
+I'm going to go ahead and comment this
+06:35
+out and I'm going to take this employee
+06:37
+raise them out and I'm going to
+06:40
+set this equal to one point zero five
+06:44
+and now I'm going to uncomment out our
+06:46
+print statements here and rerun this
+06:48
+code and you can see that it changed the
+06:51
+Rays amount for the class and all of the
+06:54
+instances now what if I was to set the
+06:57
+Rays amount using an instance instead of
+07:00
+using the class so instead of doing
+07:02
+employee dot rays amount equals five
+07:05
+percent I'm going to say employee one
+07:07
+dot rays amount equals five percent so
+07:10
+if I run this now now this might be a
+07:13
+little unexpected you can see that it
+07:15
+only changed the Rays amount for
+07:17
+employee one it's the only one that has
+07:20
+this five percent so why did it do that
+07:23
+well when we made this assignment it
+07:25
+actually created the Rays amount
+07:28
+attribute within employee one so if I go
+07:31
+back up here and print back out employee
+07:36
+ones namespace and I'm going to do this
+07:39
+under the assignment so now if I run
+07:42
+that now you can see that employee one
+07:45
+has raised amount within its name space
+07:48
+equal to five percent and it finds this
+07:52
+within its own namespace and returns
+07:53
+that value before going and searching
+07:56
+the class and we didn't set that raise
+07:59
+amount on employee two so that still
+08:02
+falls back to the classes value now
+08:04
+that's an important concept to
+08:06
+understand because up here and our apply
+08:08
+rays method we can see that we could get
+08:11
+different results depending on whether
+08:13
+we did the self which is the instance
+08:16
+raised amount or the employee class
+08:19
+raise amount so in this case I think I'm
+08:22
+going to go ahead and leave this as self
+08:24
+dot raise amount because that will give
+08:27
+us the ability to change that amount for
+08:29
+a single instance if we really wanted to
+08:31
+so if I wanted to change employee ones
+08:34
+raise amount then I could go ahead and
+08:36
+do that and when I did apply raise then
+08:40
+it would use the employee ones raise
+08:42
+amount instead of the classes raise
+08:44
+amount and also using self here will
+08:47
+allow any subclass to override that
+08:50
+constant if they wanted to and we'll
+08:53
+look at sub classing and
+08:54
+future video so now let's look at
+08:56
+another example of a class variable
+08:57
+where it wouldn't really make sense to
+09:00
+use self so let's say that we wanted to
+09:03
+keep track of how many employees that we
+09:05
+have so the number of employees should
+09:08
+be the same for all instances of our
+09:10
+class so if I created a class variable
+09:13
+up here I'm just gonna go ahead and call
+09:15
+this num of employees is equal to zero
+09:20
+for now and each time we create a new
+09:22
+employee I'm going to increment that by
+09:25
+one and I can do that within the knit
+09:28
+method since the knit method runs every
+09:31
+time we create a new employee so within
+09:34
+here I'm going to do employee dot number
+09:38
+of employees plus equals one now I'm
+09:42
+definitely gonna use employee that
+09:43
+number of employees here instead of self
+09:46
+dot number of employees because with the
+09:49
+raises it's nice to have that constant
+09:51
+class value that can be overridden per
+09:54
+instance if we really need it to be but
+09:56
+in this case there's no use case I can
+09:58
+think of where we would want our total
+10:01
+number of employees to be different for
+10:03
+any one instance so for now I'm going to
+10:06
+go down here to the bottom and go ahead
+10:09
+and delete all of this and I'm going to
+10:12
+print out employee dot number of
+10:16
+employees so now if I go ahead and run
+10:18
+that you can see that it returned two
+10:21
+because it was incremented twice when we
+10:24
+instantiated both of our employees here
+10:26
+if I was to put this print statement
+10:29
+above where we instantiated those
+10:31
+employees then you can see that it was
+10:33
+zero and we created two employees and
+10:36
+then it printed out - okay so I think
+10:38
+that is going to do it for this video
+10:40
+now I know that that was a lot to take
+10:42
+in but hopefully now you better
+10:44
+understand the difference between
+10:45
+instance variables and class variables
+10:47
+and when you would use each one so one
+10:49
+of the obvious next questions is well if
+10:52
+we have class variables then are there
+10:54
+also class methods and the answer is yes
+10:57
+there are these things called static
+10:59
+methods and also class methods and we'll
+11:02
+look at the difference between those in
+11:03
+the next video but if you do have any
+11:05
+questions about what we covered here
+11:06
+then feel free to ask and
+11:08
+section below and I'll do my best to
+11:09
+answer those if you enjoy these
+11:11
+tutorials and would like to support them
+11:12
+then there are several ways you can do
+11:14
+that the easiest way is to simply like
+11:16
+the video and give it a thumbs up and
+11:17
+also it's a huge help to share these
+11:19
+videos with anyone who you think would
+11:20
+find them useful and if you have the
+11:22
+means you can contribute through patreon
+11:24
+and there's a link to that page in the
+11:26
+description section below be sure to
+11:28
+subscribe for future videos and thank
+11:29
+you all for watching 

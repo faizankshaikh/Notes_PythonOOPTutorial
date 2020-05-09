@@ -1,0 +1,375 @@
+00:00
+Hey, everybody. How's [it] going in this series of videos?
+00:02
+We'll be learning how to create and use classes within python and how object-oriented concepts are applied within the language now
+00:09
+There's a lot to cover when working with classes, so I'm going to break these up into several different videos
+00:13
+We'll cover the basics of creating and instantiating classes will learn about inheritance class and instance variables
+00:19
+static methods and class methods and Several other topics
+00:22
+So breaking these up in several videos will allow us to focus on specific topics in each video so in this video
+00:29
+We'll be learning the basics of creating and instantiating simple classes, but first
+00:34
+Why should we even use classes now this isn't just specific to
+00:37
+Python you can see classes being used throughout most modern programming languages, and there's a good reason for that
+00:43
+they allow us to
+00:44
+Logically group our data and functions in a way that's easy to [reuse] and also easy to build upon if need be
+00:51
+Now just a quick side note when I say data and functions that are associated with a specific class
+00:56
+We call those attributes and methods, and you'll hear me use those terms a lot throughout these videos, so when I say methods
+01:02
+I mean a function that is associated with a class
+01:07
+[so] let's go ahead and get started so say we had an application for our company
+01:11
+And we wanted to [represent] our employees and our python code now
+01:15
+This would be a great use case for a class because each individual employee is going to have specific
+01:20
+Attributes and methods so for example each employee is going to have a name and email address [a] pay and also
+01:28
+Actions that they can perform so it'd be nice if we had a class
+01:31
+That we could use as a blueprint to create each employee so that we didn't have to do this manually each time from scratch
+01:38
+So let's go ahead and create a simple employee class and see what that would look like so to create a class
+01:44
+It's just as easy as saying class employee now
+01:48
+I'm going to leave this empty for now, and if we just left it like this and we get an error
+01:52
+so if you ever have a class or a function [that] you want to leave empty for the time being then you can simply put
+01:57
+In a past statement and python will know that you just want to skip that for now
+02:02
+So now we have a simple employee class with no attributes or methods
+02:06
+And I wanted to stop here because I wanted to explain the difference between a class and an instance of a class
+02:13
+So our class is basically a blueprint for creating
+02:17
+Instances and each unique employee that we create using our employee class will be an instance of that class
+02:24
+so for example if I said employee 1 equals employee and
+02:29
+EmPLoyee 2
+02:31
+Equals employee then each of these are [going] to be their own unique instances of the employee class
+02:38
+so for example if I go ahead and print both of these out and
+02:45
+Copy and paste that
+02:47
+There and you can see that both of these are employee objects, and they're both unique
+02:53
+They both have different locations here in memory now
+02:55
+This is an important distinction because you'll hear me talk a lot about
+02:59
+instance variables and class variables and it's important to know the difference between those and I'll go more in depth into class variables in the
+03:06
+next video but for this video
+03:08
+We're going to be looking at instance variables so instance variables contain Data that is unique to each instance
+03:14
+Now we could manually create instance variables for each employee by doing something like this
+03:20
+So let's say we wanted employee 1 to have a first name and a last name so I could just do employee 1 not first
+03:28
+Equals Corey and then I could do employee last
+03:34
+is
+03:36
+equal to
+03:37
+Schaefer and I could also give it an email address, so I'll do employee 1 dot email equals
+03:44
+and I'll just do the first name with the last name at
+03:49
+Company comm and lastly let's go ahead and add a pay [onto] there too, so I'll do employee 1 not pay and we'll just do
+03:57
+50,000 there now let's give employee to
+04:01
+Some of these same attributes so for this one. I'll just do test
+04:06
+User and then I'll do test
+04:10
+User and I will make that
+04:13
+60,000 ok so now each of these instances have attributes that are unique to them
+04:19
+so if I print it out, let's say I could print out the employee [1] dot mail and
+04:26
+Also print out the employee to email
+04:31
+On it looks like whenever I gave these the instance variables
+04:35
+I forgot to make this employee to here so now let's run that so now you can see that that email
+04:40
+Was created for each employee?
+04:43
+[let's] say that we wanted to set all of this information for each employee
+04:46
+When they're created rather than doing all of this manually like we did here
+04:51
+So we wouldn't want to have to
+04:53
+Manually set these variables every time you can see it's a lot of code and it's also prone to mistakes
+04:58
+Just like I did whenever I forgot to change the [to] employee, [too]
+05:03
+So we don't get much benefit of using classes if we did it this way, so to make these
+05:09
+Set up automatically when we create the employee we're going to use a special init method
+05:14
+So now inside of our employee class I'm going to create this special init method
+05:20
+Now you can think of this method as initialize and if you're coming from another language
+05:25
+Then you can think of this as the constructor now when we create methods within a class they [receive] the instance as the first argument
+05:34
+Automatically and by convention. We should call the instance self now. You can call it
+05:39
+Whatever you want
+05:40
+But it's a good idea to stick to convention here and just use self
+05:44
+So after self we can specify what other arguments that we want to
+05:49
+Accept so let's go ahead and accept the first name the [last] name and the pay and I know that we had email, too
+05:56
+But we can create the email using the first name and the last name so now within our and Knit method
+06:02
+We're going to set all of these instance variables
+06:06
+So let's do self dot first equals first and now I'm just going to do this for the rest of them as well
+06:14
+So [I'm] going to do self dot pay or self dot last and self dot pay and for the email
+06:20
+I can do self dot email equals first plus
+06:24
+and then we'll put a dot between those and then last and then we'll add on to the end at
+06:32
+company comm
+06:34
+Okay, so whenever I say that self is the instance what I mean by [that] is that when we self dot first?
+06:42
+equals [two] first here
+06:43
+It's going to be the same thing as us saying down here that employee one dot first equals
+06:49
+[Korey] except now instead of doing this manually
+06:53
+It'll be done automatically when we create our employee objects
+06:57
+Now these don't need to be the same as our arguments so for example. I could make this
+07:03
+Self dot f name equals first, but I usually like to keep these similar if possible
+07:09
+So I'm going to go ahead and set that back [to] self dot first equals first, okay?
+07:14
+So now when we create our instances of our employee class right here now
+07:19
+we can pass in the values that we
+07:21
+specified in our anit method now our net method takes the instance which we call itself and the first name last name and
+07:28
+Pay as arguments, but when we create our employee down here the instance is passed automatically
+07:36
+So we can leave off self we only need to provide the names and the pay so we could create these by
+07:43
+Passing in first and we have to do this in order
+07:46
+So I will pass in all of the same information that we did manually down there and for the second one
+07:53
+I'll do [test] and
+07:55
+User and I think I had that at
+07:59
+[sixty] [thousand] okay
+08:00
+so what would happen on this line when we create this employee the anit method will [be] run automatically, so
+08:09
+Employee one will be passed in as self and then it will set all [of] these attributes
+08:14
+So it'll set employee one dot first is equal to first which we passed in as quarry
+08:21
+Employee one that last equals what we passed in is last and so on so now that we have that an it method in place
+08:28
+We can go [ahead] and delete these manual assignments that we made down here
+08:33
+And you can see by deleting that that we got rid of a lot of code
+08:36
+So I'm going to go ahead and comment out those lines
+08:39
+[we're] printing [the] employees, and I'm just going [to] go ahead and print out the email
+08:43
+So if I run that then you can see that that still works, okay?
+08:47
+So everything that we have so far [like] the names and email and the pay are all attributes of our class now
+08:54
+Let's say that we wanted the ability to perform some kind of action not to do that
+08:58
+We can add some methods to our class
+09:00
+So let's say [that] I wanted the ability to display the full name of an employee now
+09:05
+This is an action that you'd likely need to do a lot with a class like this
+09:09
+So we can do this manually outside the class if I was to come down here and do
+09:16
+Print and I could get the full name just by putting in two
+09:20
+placeholders there and doing a format and saying employee one dot first and
+09:27
+Employee one dot last and if I go ahead and print this out
+09:33
+And you can see that we got the full name there
+09:36
+But that's a lot to type in each time that you want to display the employees full name, [so] instead
+09:42
+Let's create a method within our class that allows us to put this functionality in one place, so within our class here
+09:49
+I'm going to create a method called full name and we can do that with just doing a death of
+09:56
+Full name now [like] I said before each method within a class
+10:01
+Automatically takes the instance as the first argument
+10:03
+and
+10:04
+We're going to always call [that] self and the instance is the only argument that we'll need in order to get the full name
+10:12
+So within this method here
+10:15
+I'm just going [to] take the same logic that we had down here and cut that out
+10:20
+and I'm just going to go ahead and return that but we have to be careful here because
+10:25
+now instead of printing Employee [1]
+10:29
+[first-name] and [lastname], [I'm] going to use self so that it will work [with] all instances
+10:35
+So I'm going to do self dot first and self dot last
+10:38
+So now that we created that method instead of printing like we did before now
+10:43
+I can just come down [here] and do employee 1 dot full name and
+10:49
+Print that out
+10:49
+And if I run that then you can see that we got the same [thing] and notice that we need the parentheses here
+10:55
+Because this is a method instead of an attribute
+10:58
+So if I left the parentheses off and printed this then you can see that it prints the method instead
+11:05
+[of] the return value of the
+11:07
+method so we're going to have to put those parentheses on in order to run that properly so now we have full advantage of
+11:14
+Code reviews here, so instead of typing this out for each full name that I want to print now
+11:19
+I can just use that method so now if I wanted to print employee two's full name
+11:23
+It's just as easy as replacing employee one with employee two and running that and we get the correct answer
+11:31
+Okay, and one more quick thing that I wanted [to] point out here
+11:35
+Now one common mistake that I see when creating methods is forgetting the self argument for the instance
+11:42
+So let's take a quick look at what that would look like if we left that off
+11:46
+so now before I run this if I just comment it out this printing of full name down here and
+11:52
+Ran this then you can see I'm actually going to remove these print statements here as well
+11:57
+Now [you] can see that this runs without any errors
+12:00
+But if I was to try to run this method that we accidentally left self off of then
+12:06
+Run this and you can see that we get an error and the error that we got was a type error
+12:12
+full-name takes zero positional arguments
+12:15
+But one was given now this can be confusing because it doesn't look like we're passing any arguments here into full name
+12:22
+But the instance which in this case is employee two is getting passed automatically
+12:28
+So we have to expect that instance argument in our method, and that's why we added self
+12:34
+so I'm going to come back up [here] to full name and
+12:37
+Put self back in and now running this you can see that [it] runs
+12:41
+Correctly now we can also run these methods using the class name
+12:47
+Itself which makes it a bit more obvious of what's going on in the background because whenever we do that, so I'll do employee
+12:56
+Dot full name now [when] we run it from the class we have to manually pass in the instance as an argument
+13:04
+So in this case
+13:04
+I'll pass in employee one so you can see how these are similar, but not exactly the same
+13:10
+So I'm going to put these side-by-side just so that we can compare them here
+13:14
+So these two lines here do the exact [same] thing, but here when I do employee one
+13:20
+Which is a instance and I call the method. I don't need to pass in self
+13:25
+It does it automatically and when we call the method on the class
+13:30
+And it doesn't know what?
+13:31
+instance that we want to run that method with so we do have to pass in the instance and that gets passed in as
+13:37
+self and if I go [ahead] and
+13:40
+Print this out and run it then you can see that it works
+13:44
+Just like if we were to print out the employee one dot full name
+13:48
+And I wanted to show you that because that's actually what's going on in the background
+13:52
+when we run employee one dot full name it gets transformed into this here employee dot full name and
+14:00
+Passes in employee one as self and that's why we have self for these methods, so I hope that makes sense to you
+14:07
+That's not extremely important to know when we're just getting started with working with classes
+14:12
+But we need to understand that [in] later videos once we start inheriting from other classes and things like that
+14:18
+So I figured it would be a good thing to go ahead, and show you that now okay?
+14:22
+So I think that's going to do it for this video in this video
+14:25
+We learned how to create simple classes the difference between a class and an instance of that class and we also learned how to initialize
+14:33
+class attributes and create methods now
+14:36
+We still have a lot to cover in future videos, and we'll be going over more advanced topics, so in the next video
+14:41
+We'll learn about class variables, and how they differ from instance variables that we saw here
+14:46
+But if you do have any [questions] with what we covered in this video
+14:49
+Then feel free to ask in the comment section [below] and I'll do my best to answer those
+14:53
+If you enjoy these tutorials and would like to support them then there are several ways you can do that
+14:57
+The easiest way is to simply like the video and give it a thumbs up and also
+15:01
+it's a huge help to share these videos with
+15:02
+Anyone who you [think] would find them useful and if you have the means you can contribute through patreon
+15:07
+And there's a link to that page in [its] scription section below be sure to subscribe for future videos and thank you all for [watching]
+

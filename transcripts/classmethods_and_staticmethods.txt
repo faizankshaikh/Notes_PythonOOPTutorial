@@ -1,0 +1,747 @@
+00:00
+hey everybody how's it going in our last
+00:02
+video we looked at the difference
+00:03
+between instance variables and class
+00:04
+variables and in this video we'll be
+00:06
+learning about the difference between
+00:07
+regular methods class methods and static
+00:11
+methods and a lot of people get confused
+00:12
+as to the difference between class
+00:14
+methods and static methods so we'll
+00:16
+definitely go over that in detail so as
+00:19
+we learned in our previous videos
+00:20
+regular methods in a class automatically
+00:24
+take the instance as the first argument
+00:26
+and by convention we were calling this
+00:29
+self so if a regular method
+00:31
+automatically takes in the instance as
+00:33
+the first argument then how can we
+00:35
+change this so that it instead
+00:37
+automatically takes the class as the
+00:39
+first argument now to do that we're
+00:41
+going to use class methods and to turn a
+00:43
+regular method into a class method it's
+00:46
+as easy as adding a decorator to the top
+00:49
+called class method so let's go ahead
+00:52
+and create one of these so I'm going to
+00:54
+create a new method here with that class
+00:56
+method decorator and I'm just going to
+00:58
+call this set raised amount now for this
+01:02
+set raised amount method I'm going to
+01:05
+take in the class and I'm going to take
+01:07
+in an amount and for now we'll just put
+01:09
+in a pass statement there now if you'd
+01:12
+like to learn more about how decorators
+01:13
+work then you can watch my video that
+01:15
+goes into that in depth but basically
+01:18
+this is altering the functionality of
+01:20
+our method to where now we receive the
+01:22
+class as our first argument instead of
+01:25
+the instance now by convention with a
+01:27
+regular method we called this instance
+01:29
+variable self and there's a common
+01:33
+convention for class variables too and
+01:35
+that is CLS now we can't use the word
+01:38
+class as the variable name here because
+01:41
+the word has a different meaning within
+01:43
+the language you can see here at up at
+01:46
+the top that we use the word class to
+01:48
+create a new class so that is a keyword
+01:51
+in Python so instead we're going to use
+01:53
+CLS as our class variable name so now
+01:55
+within this set raise amount method we
+01:58
+are working with the class instead of
+02:01
+the instance and to show you what I mean
+02:03
+by this let's go ahead and set our class
+02:05
+variable raise amount so we'll say class
+02:09
+dot raise amount and we'll just set this
+02:13
+equal to the amount argument that we are
+02:17
+accepting from this method so now down
+02:19
+here at the bottom I still have these
+02:21
+two employee instances that I created in
+02:23
+our previous tutorials and Here I am
+02:26
+printing out the classes raised amount
+02:28
+as well as both instances raised amounts
+02:32
+so if I go ahead and run this then you
+02:35
+can see that all of those are equal to
+02:36
+4%
+02:37
+now the reason all those are equal to 4
+02:39
+percent again is because we have this
+02:41
+class variable here raised amount that
+02:43
+is set to 4% so now let's say that we
+02:46
+wanted to change this to 5%
+02:49
+so before I print these out then I could
+02:52
+just use that raised set raise amount
+02:54
+method that we just created and I could
+02:56
+do employee dot set raise amount and it
+03:01
+automatically accepts the class so we
+03:04
+don't have to pass that in so now we can
+03:06
+just pass in an amount so I'm going to
+03:08
+go ahead and do 5% and if I save that
+03:11
+and run it and you can see that now all
+03:14
+of these are equal to 5% now the reason
+03:17
+all those are equal to 5% is because we
+03:19
+ran this set raise amount method which
+03:22
+is a class method which means that now
+03:24
+we are working with the class instead of
+03:27
+the instance and we're setting that
+03:29
+class variable raise amount equal to the
+03:32
+amount that we passed in here which is
+03:34
+5% so really us running this set raise
+03:37
+amount method here and setting this CLS
+03:41
+variable raise amount to the amount is
+03:43
+the same thing as us saying employee dot
+03:46
+raise amount equals 5% but now we are
+03:51
+using this class method to do that
+03:53
+instead now you can run class methods
+03:55
+from instances as well but that doesn't
+03:58
+really make a lot of sense and I don't
+04:00
+ever see people doing it but to show you
+04:02
+what that would look like I can also
+04:04
+grab this instance here and I can run
+04:08
+that class method from the instance and
+04:11
+if I run that you can see that running
+04:14
+that class method from the instance
+04:15
+still changes that class variable and
+04:18
+sets all of the class variable and both
+04:22
+instance amounts to that 5 percent that
+04:25
+we passed in now you may also hear
+04:27
+people say
+04:27
+that they use class methods as
+04:29
+alternative constructors now what do
+04:32
+they mean by this so what they mean is
+04:33
+that you can use these class methods in
+04:36
+order to provide multiple ways of
+04:38
+creating our objects so let's say that
+04:41
+for example we had someone who is using
+04:43
+our employee class and they said hey I
+04:46
+have these specific use cases where I'm
+04:49
+getting employee information in the form
+04:51
+of a string that is separated by hyphens
+04:53
+and I'm constantly needing to parse the
+04:56
+string before I create new employees so
+05:00
+is there a way to just pass in a string
+05:01
+and create an employee from that so
+05:05
+let's go ahead I have an example down
+05:07
+here to where we can see exactly what
+05:11
+this problem would look like so let's
+05:13
+say that this is a common use case for
+05:14
+how someone is using our class we have
+05:17
+three strings here that are employees
+05:22
+separated by hyphens so we have the
+05:24
+first name the last name and the salary
+05:26
+and they're all in a string and they're
+05:28
+separated by hyphens now if I wanted to
+05:31
+create a new employee from this string
+05:33
+then what I would have to first do is I
+05:36
+would have to split this string on the -
+05:40
+and then we'd have our first name last
+05:42
+name and our pay and then based on those
+05:45
+values we would be able to create a new
+05:48
+employee by passing in those values and
+05:51
+that would run our a knit method so now
+05:54
+let me go ahead and save this and run it
+05:57
+and you can see that this works we're
+06:00
+splitting the string up into a first
+06:02
+name last name and pay and then we are
+06:05
+creating a new employee just like we did
+06:07
+up here out of those values that we
+06:09
+parse from the string and you can see
+06:11
+that it works because we're printing out
+06:13
+that new employees email and pay and
+06:15
+everything is as it should be but if
+06:17
+this is a common use case for how
+06:19
+someone is using our class and we don't
+06:21
+want them to have to parse these strings
+06:22
+every time that they want to create a
+06:24
+new employee so let's just create an
+06:27
+alternative constructor that allows them
+06:29
+to pass in the string and we can create
+06:31
+the employee for them so I'm going to go
+06:34
+ahead and come up here and create a new
+06:37
+class method and we're going to use this
+06:41
+new
+06:41
+method as an alternative constructor and
+06:43
+usually these start with the from but
+06:46
+that's just a convention also but I'm
+06:48
+going to call this from string and
+06:51
+remember that we automatically accept
+06:53
+the class as the first argument there
+06:55
+and I'm just going to call this second
+06:58
+argument employee string and now we're
+07:01
+just going to go ahead and parse this
+07:02
+string for them so exactly what we did
+07:05
+down here I'm just going to grab this
+07:07
+line first name last name and pay and
+07:10
+I'm going to go ahead and put this in
+07:12
+our class method but now instead of
+07:15
+working with this specific string I'm
+07:18
+going to split the string that they pass
+07:21
+to this method so instead of employee
+07:23
+string one I'm going to use this
+07:26
+employee string argument from this
+07:28
+method here and down here at the bottom
+07:30
+we created our new employee by saying
+07:33
+employee and then passing in those
+07:36
+variables that we got when we split but
+07:39
+now that we're inside of our class
+07:41
+method we can do the exact same thing
+07:43
+but now we're going to use our class
+07:44
+variable instead of employee because
+07:46
+those are the same thing
+07:48
+so I'm going to go ahead and grab this
+07:50
+line here and paste it in but now I'm
+07:53
+going to use this class instead of
+07:56
+employee since that's basically the same
+07:58
+thing so this line is going to create
+08:01
+that new employee and now that we've
+08:03
+created that new employee we also need
+08:05
+to return it so that they can receive
+08:08
+that employee object when this method is
+08:10
+called so I'm just going to return that
+08:13
+new employee object okay so now our
+08:16
+alternative constructor is done so now I
+08:18
+can delete this line here and now
+08:21
+instead of someone needing to parse the
+08:24
+string themselves we've provided them
+08:27
+with this from string method that they
+08:30
+can call and you see here that they are
+08:33
+just passing in this employee string one
+08:36
+and it comes in here and it splits that
+08:39
+string on the - and then creates a new
+08:41
+employee object and then returns that
+08:44
+employee object so now if I save this
+08:46
+and run it you can see that we got the
+08:49
+exact same values so now they'd have no
+08:52
+need to parse the strings anymore
+08:54
+we've provided them with a from string
+08:57
+alternative constructor and now they can
+09:00
+just pass in those strings and get their
+09:02
+new employee objects so when people say
+09:04
+that they use class methods as
+09:06
+alternative constructors then this is
+09:08
+what they mean now if you want to see a
+09:10
+real-world example of this then I have
+09:12
+the date/time module pulled up here and
+09:15
+there are several ways that we can
+09:17
+create new date times and if you search
+09:19
+for class method within the date/time
+09:22
+module then you can see an example of
+09:24
+some of these so the default way of
+09:26
+creating a date/time object is to say
+09:29
+something like date/time and then pass
+09:31
+in the year month and date but if we
+09:34
+look here at these class methods which
+09:36
+are alternative constructors then what
+09:39
+they do is they have this from time
+09:41
+stamp and you can use the current time
+09:45
+which is today and they have a couple of
+09:47
+other examples here as well and you can
+09:49
+see that they're basically doing the
+09:51
+same thing that we just did in our
+09:53
+example so you can see that they are
+09:55
+accepting the class and a timestamp with
+09:58
+this from time stamp constructor and
+10:00
+then they are parsing out some dates and
+10:03
+then they're creating that new date/time
+10:05
+object and returning that so it's a new
+10:08
+way of creating date/time objects so
+10:11
+that is very similar to the example that
+10:13
+we just wrote on our own so now if you
+10:15
+ever see something like this in code
+10:17
+then you'll know what's going on okay so
+10:19
+now that we looked at class methods now
+10:21
+let's talk about static methods now a
+10:23
+lot of people gets class methods and
+10:25
+static methods confused now when working
+10:27
+with classes regular methods
+10:30
+automatically pass the instance as the
+10:32
+first argument and we call that self and
+10:35
+class methods automatically pass the
+10:38
+class as the first argument and we call
+10:41
+that CLS and static methods don't pass
+10:44
+anything automatically they don't pass
+10:47
+the instance or the class so really they
+10:50
+behave just like regular functions
+10:52
+except we include them in our classes
+10:54
+because they have some logical
+10:56
+connection with the class so let's go
+10:58
+ahead and take a look at an example so
+11:00
+that we know what we mean here so I'm
+11:02
+going to go ahead and delete these lines
+11:05
+here so let's say that we wanted
+11:08
+a simple function that would take in a
+11:10
+date and return whether or not that was
+11:13
+a workday so that has a logical
+11:17
+connection to our employee class but it
+11:19
+doesn't actually depend on any specific
+11:22
+instance or class variable so instead
+11:25
+I'm going to make this a static method
+11:27
+so to create a static method it's just
+11:30
+as easy as a class method and we're also
+11:33
+going to use a decorator that decorator
+11:35
+is going to be static method so I'm
+11:37
+going to call this method is workday now
+11:42
+remember static methods don't take the
+11:44
+instance or the class as the first
+11:46
+argument so we can just pass in the
+11:49
+arguments that we want to work with and
+11:50
+I'm going to take in a day here and
+11:53
+return whether or not that is a workday
+11:56
+so to make this a simple example I'm not
+11:58
+going to do it to anything too
+12:00
+complicated I'm just going to return
+12:01
+whether or not our day falls on a
+12:04
+weekday so in Python dates have these
+12:07
+weekday methods where Monday is equal to
+12:09
+zero and Sunday is equal to six and all
+12:13
+the other days in between so if I wanted
+12:15
+to return whether this is a weekday and
+12:18
+I could just say they dot weekday if
+12:21
+that is equal to five well which is a
+12:25
+Saturday and I'm going to go ahead and
+12:27
+just copy this line here and say or if
+12:30
+that day is equal to six which is a
+12:33
+Sunday then I'm going to return false
+12:36
+and if it doesn't hit that conditional
+12:39
+then it means that it's a weekday so I'm
+12:41
+just going to return true now sometimes
+12:44
+people write regular methods or class
+12:46
+methods that actually should be static
+12:49
+methods and usually a giveaway that a
+12:51
+method should be a static method is if
+12:54
+you don't access the instance or the
+12:56
+class anywhere within the function so
+12:59
+say that I had this class method up here
+13:02
+you can see that I'm using that class
+13:04
+variable there but if I wasn't using it
+13:07
+anywhere within that method then it
+13:10
+probably doesn't need to be a class
+13:12
+method and the same with regular methods
+13:14
+if you're not using that self variable
+13:16
+then it's probably you probably want to
+13:19
+check and see if that would be
+13:20
+appropriate to use a static method
+13:22
+that place okay so now let's go down
+13:24
+here and see if our static method is
+13:26
+working so I'm just going to go ahead
+13:28
+and uncomment out these couple of lines
+13:31
+here and all I'm doing here is I'm
+13:33
+importing the eighth time module and
+13:35
+then I'm creating a new date and if I
+13:38
+wanted to use our new static method here
+13:40
+that checks whether this date is a
+13:42
+weekday then I can just print out the
+13:44
+employee dot is work day and pass in
+13:49
+that date so if I run that on I got an
+13:52
+error there because whenever I copied
+13:55
+and pasted I forgot to take out this
+13:57
+second if I really want that to say if
+13:59
+the weekday is equal to five or the
+14:02
+weekday is equal to six so now if I save
+14:05
+that and run it then you can see that
+14:07
+this day that I passed in is false
+14:09
+because that's actually a Sunday now if
+14:12
+I replace this with the 11th and run
+14:15
+that now you can see that it's a Monday
+14:17
+so you can see that his workday returns
+14:20
+true okay so I think that is going to do
+14:23
+it for this video in this video we
+14:24
+learned the difference between regular
+14:26
+instance methods class methods which can
+14:29
+also be used as alternative constructors
+14:31
+and static methods which don't operate
+14:34
+on the instance or the class so I hope
+14:36
+all of that made sense to everyone but
+14:38
+if you do have any questions about
+14:40
+anything that we cover then feel free to
+14:41
+ask in the comment section below and
+14:43
+I'll do my best to answer those in the
+14:45
+next tutorial we'll start looking at
+14:46
+inheritance and how we can make
+14:48
+subclasses now if you enjoy these
+14:50
+tutorials and would like to support them
+14:52
+then there are several ways you can do
+14:53
+that the easiest way is to simply like
+14:55
+the video and give it a thumbs up and
+14:57
+also it's a huge help to share these
+14:58
+videos with anyone who you think would
+15:00
+find them useful and if you have the
+15:01
+means then you can contribute through
+15:03
+patreon and there's a link to that page
+15:04
+in the description section below be sure
+15:07
+to subscribe for future videos and thank
+15:08
+you all for watching
+

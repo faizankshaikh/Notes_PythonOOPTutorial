@@ -1,0 +1,936 @@
+00:00
+hey everybody how's it going in this 
+00:01
+video we'll be learning about Python
+00:03
+class inheritance now just like it
+00:05
+sounds
+00:06
+inheritance allows us to inherit
+00:07
+attributes and methods from a parent
+00:09
+class now this is useful because we can
+00:11
+create subclasses and get all the
+00:14
+functionality of our parent class and
+00:15
+then we can overwrite or add completely
+00:18
+new functionality without affecting the
+00:20
+parent class in any way so let's go
+00:22
+ahead and look at an example of this and
+00:24
+we'll see why this is useful so for our
+00:26
+object-oriented video so far we've been
+00:28
+working with this employee class now
+00:31
+let's say that we wanted to get a little
+00:32
+more specific here and create different
+00:35
+types of employees so for example let's
+00:37
+say that we wanted to create developers
+00:39
+and managers now these will be good
+00:41
+candidates for subclasses because both
+00:44
+developers and managers are going to
+00:46
+have names email addresses and a salary
+00:49
+and those are all things that our
+00:51
+employee class already has so instead of
+00:54
+copying all this code into our developer
+00:56
+and manager subclasses we can just reuse
+00:59
+that code by inheriting from employee so
+01:02
+let's go ahead and create these
+01:03
+developer and manager subclasses and
+01:05
+it's just as easy as creating a new
+01:08
+class just like we did up here with
+01:10
+employee but we're going to call this
+01:12
+new class developer and after the name
+01:16
+of class we can put these parentheses
+01:18
+here and specify what classes that we
+01:20
+want to inherit from so in this place we
+01:23
+want to inherit from the employee class
+01:26
+now I'm just going to put in this past
+01:28
+statement here for now because I want to
+01:30
+show you that by simply inheriting from
+01:32
+that employee class that we inherited
+01:34
+all of its functionality so right now
+01:36
+even without any code of its own the
+01:39
+developer class will have all of the
+01:40
+attributes and methods of our employee
+01:43
+class so right now down here I have two
+01:45
+instances of our employee class and then
+01:48
+I'm printing out both of their emails so
+01:51
+if I save this and run it you can see
+01:53
+that when we create two new employees
+01:55
+and print out their emails that we get
+01:57
+this result so now instead of creating
+02:00
+two new employees I'm now going to
+02:02
+create two new developers and pass in
+02:04
+all of the same information so now if I
+02:07
+rerun this and print out those emails
+02:09
+you can see that those two developers
+02:11
+were created successfully and
+02:13
+we can access the attributes that were
+02:16
+actually set in our parent employee
+02:18
+class so what happened here is that when
+02:20
+we instantiated our developers it first
+02:23
+looked in our developer class for our
+02:25
+annette method and it's not going to
+02:28
+find it within our developer class
+02:29
+because it's currently empty so what
+02:31
+python is going to do then is walk up
+02:33
+this chain of inheritance until it finds
+02:35
+what it's looking for
+02:36
+now this chain is called the method
+02:38
+resolution order now I want to show you
+02:40
+there's really useful function here that
+02:42
+makes these things a lot easier to
+02:44
+visualize and that is the help function
+02:46
+so first I'm going to copy out these two
+02:49
+lines here and then I'm just going to
+02:52
+print out this help function and I'm
+02:55
+going to pass in the developer class so
+02:59
+if I go ahead and run that and I'm going
+03:02
+to make this a little bit bigger here
+03:04
+now you can see that when we run help on
+03:06
+that developer class that we get all
+03:08
+kinds of good information here so that
+03:10
+method resolution order that I mentioned
+03:12
+is one of the first things that gets
+03:13
+printed out and basically these are the
+03:16
+places that Python searches for
+03:18
+attributes and methods so when we
+03:20
+created our two new developers here it
+03:24
+first looked at our developer class for
+03:26
+the init method and when it didn't find
+03:29
+it there then it went up to the employee
+03:31
+class and it found it there so that's
+03:33
+where it was executed now if it hadn't
+03:36
+found it in our employee class then the
+03:38
+last place that it would have looked is
+03:39
+this object class and every class and
+03:42
+Python inherits from this base object
+03:45
+now if we look at this output further
+03:46
+then it actually shows the methods that
+03:49
+were inherited from employee so you can
+03:51
+see here that we have the net method and
+03:54
+we also have our apply raised method and
+03:56
+our full-name method and if I keep
+03:58
+scrolling down here then you can also
+04:00
+see that we have our data and other
+04:02
+attributes and you can see that the
+04:04
+class attribute raised amount was also
+04:07
+inherited from the employee class so we
+04:10
+got all of this code for free just by
+04:12
+inheriting from that employee class okay
+04:15
+so now I'm going to go ahead and make
+04:17
+this smaller again and I'm going to take
+04:20
+out that printed help statement okay so
+04:23
+now let's say that we wanted to
+04:24
+customize our subclass a little bit now
+04:26
+I'm going to make a
+04:27
+simple one-line change in here and I'm
+04:30
+just going to change the raise amount
+04:32
+but first let's go ahead and see what
+04:36
+happens when we apply arrays on our
+04:39
+current developer so I'm going to print
+04:42
+out this should actually be pay and this
+04:44
+should be pay now I'm going to print out
+04:47
+our current developers pay here which
+04:50
+should be 50,000 then I'm going to apply
+04:53
+a raise and it should find our employees
+04:57
+raise amount of 4% and that I'm going to
+04:59
+reprint out that developers pay again so
+05:03
+if I save that and run it you can see
+05:05
+that it printed out 50,000 applied the
+05:08
+raise and then printed out 4% higher but
+05:12
+let's say that we wanted our developers
+05:14
+to have a raise amount of 10% now to
+05:16
+change that it's just as easy as coming
+05:19
+into our developer class here and it's
+05:22
+changing the raise amount to 10% so now
+05:26
+if I go ahead and rerun this you can see
+05:29
+that it used our developer class's raise
+05:31
+them out instead of our employee classes
+05:33
+raise them out now if I was to change
+05:36
+this instance back to an employee
+05:38
+instead of a developer and then reran
+05:41
+this then you can see that now it's back
+05:43
+to that employee 4% amount so the thing
+05:47
+to take away here is that by changing
+05:49
+the raise amount and our subclass it
+05:51
+didn't have any effect on any of our
+05:53
+employee instances so they still have
+05:56
+that raise amount of 4% so we can make
+05:59
+these changes to our subclasses without
+06:01
+worrying about breaking anything in the
+06:03
+parent class okay so now I'm going to go
+06:05
+ahead and change this back to a
+06:07
+developer and we'll make a few more more
+06:10
+complicated changes so sometimes we want
+06:13
+to initiate our subclasses with more
+06:16
+information than our parent class can
+06:18
+handle so what do I mean by that so
+06:20
+let's say that when we created our
+06:22
+developers here that we wanted to also
+06:24
+pass in their main programming language
+06:26
+as an attribute but currently our
+06:29
+employee class only accepts first-name
+06:32
+lastname and pay so if we also wanted to
+06:35
+pass in a programming language there
+06:37
+then to get around this we're going to
+06:40
+have to give the
+06:41
+developer class its own and net method
+06:43
+so what I'm going to do is I'm just
+06:45
+going to go up here to our employee
+06:46
+class and grab that init method and I'm
+06:49
+going to paste it here within the
+06:51
+developer class now along with the first
+06:54
+name last name and pay I'm also going to
+06:56
+add in an argument here for the
+06:59
+programming language now what you might
+07:02
+be tempted to do here is just go up and
+07:04
+copy all of this code from our employees
+07:08
+classes and knit method and paste it
+07:10
+into our developer classes init method
+07:13
+but we don't want to do that because we
+07:15
+want to keep our code dry and not repeat
+07:18
+this logic in multiple places because we
+07:20
+want it to be as maintainable as
+07:22
+possible so instead of copying and
+07:25
+pasted pasting that what we're instead
+07:28
+going to do is just let our employees
+07:30
+and knit method handle the first name
+07:32
+last name and pay and then we'll let the
+07:36
+developer set the programming language
+07:38
+so in order to let that employee handle
+07:41
+the first name last name and pay what we
+07:43
+can do here is just do super dot and
+07:47
+knit and then we can pass in the first
+07:51
+last and pay so again super dot knit is
+07:56
+going to pass first last and pay to our
+08:00
+employees and knit method and let that
+08:03
+class handle those arguments now there's
+08:07
+multiple ways of doing this logic here
+08:10
+you may have seen some people do
+08:12
+employee dot a knit and instead of
+08:15
+passing in first last and pay they'll
+08:18
+type in self and then first last and pay
+08:22
+now both of these ways of calling the
+08:25
+parents and knit method will work but I
+08:27
+tend to use super because with single
+08:30
+inheritance like we are using here it's
+08:32
+a little bit more maintainable but it's
+08:35
+really necessary once you start using
+08:37
+multiple inheritance and we're going to
+08:39
+go over that in a future video but to
+08:41
+keep things simple I usually just like
+08:42
+to always stick with super so now that
+08:45
+we're letting our employee classes a
+08:47
+tenth method handle the first last and
+08:49
+pay now we can handle the programming
+08:53
+language argument just like we would in
+08:55
+the other class so I can just say self
+08:57
+dot programming language equals the
+09:01
+programming language that we passed in
+09:03
+here okay and that should be all we need
+09:05
+for our anit method so now when we
+09:07
+instantiate our developers down here
+09:09
+it's also going to be expecting a
+09:11
+programming language to be passed in so
+09:14
+I'm just going to go ahead and pass in
+09:15
+Python for our first developer and I'll
+09:18
+pass in Java for our second developer so
+09:21
+now to make sure that this worked I'm
+09:23
+going to comment out those lines there
+09:26
+and I'm going to print out the first
+09:28
+developers email I'm also going to print
+09:31
+out the first developers programming
+09:33
+language okay so if I run that then you
+09:35
+can see that both of those were set
+09:37
+correctly so we got the email set I it
+09:41
+when we passed in all of our arguments
+09:43
+here it came up here and it ran our
+09:46
+employees and knit method and set all of
+09:49
+those within there and then it also set
+09:52
+our programming language within our
+09:55
+developers init method there so you can
+09:57
+see why this sub classing is useful
+09:59
+because we were able to customize just a
+10:01
+little bit of code and we got all of
+10:05
+this code from our employee class for
+10:07
+free just by adding in that one little
+10:09
+line there okay so just so we can get a
+10:11
+really good understanding of this let's
+10:13
+go through the process of creating
+10:14
+another subclass called manager and I'll
+10:17
+go through all these steps again but
+10:19
+I'll go a little bit faster this time
+10:21
+okay so right here below our developer
+10:23
+I'm going to create a another class and
+10:27
+I'm going to call this class manager and
+10:29
+if this is also going to inherit from
+10:32
+employee now when I create a new manager
+10:34
+I'm going to give the option of passing
+10:37
+in a list of employees that this manager
+10:40
+supervises so we're going to need to add
+10:42
+an a knit method for our manager and
+10:45
+instead of typing all this in I'm just
+10:47
+going to grab this Anette method here
+10:49
+from our developer and paste this in
+10:52
+here okay but this is going to be a
+10:54
+little bit different instead of a
+10:55
+programming language for our manager I'm
+10:58
+going to let them pass in a list of
+11:00
+employees and I'm going to set the
+11:02
+default to none and then instead of
+11:06
+setting this programming language here
+11:08
+I'm
+11:08
+say if employees is none self dot
+11:14
+employees is equal to an empty list and
+11:17
+then else self dot employees equals
+11:23
+employees now you might be wondering why
+11:26
+I didn't just pass in an empty list as
+11:28
+default argument here instead of none
+11:31
+but you never want to pass mutable data
+11:33
+types like a list or a dictionary as
+11:35
+default arguments and that's a topic for
+11:38
+another video and I plan on doing one on
+11:40
+that soon but for now we'll just go
+11:42
+ahead and set our employees to an empty
+11:45
+list if the argument is not provided and
+11:47
+set them equal to that employees list if
+11:49
+it is okay so now let's add in a few
+11:52
+methods here so I'm going to give the
+11:56
+option to add and remove from our list
+11:59
+of employees that our manager supervises
+12:01
+and to do this I'll add in a method
+12:04
+called add employee and add employee
+12:08
+will take self just like all of our
+12:11
+instance methods do and employee and
+12:15
+then I'll just say if the employee is
+12:17
+not in self dot employees then I will
+12:23
+just append that employee to our lists
+12:27
+so self dot employees dot append that
+12:29
+employee and now I'm also going to
+12:31
+create another method here to remove
+12:33
+employees from this list and it's going
+12:35
+to be similar so I'm just going to go
+12:37
+ahead and copy that but this is going to
+12:39
+be removed and we'll say if the employee
+12:43
+is in our list of employees then remove
+12:47
+that employee ok and lastly I'm going to
+12:50
+add a method that will print out all of
+12:53
+the employees that this manager
+12:55
+supervises so I'm going to call this
+12:58
+method print employees and this isn't
+13:02
+going to take any more arguments than
+13:04
+just self and I'll say for employee in
+13:07
+self dot employees and then I will just
+13:12
+print out that employee and before the
+13:15
+employee I'll go ahead and put an arrow
+13:17
+here just so it sticks out a little bit
+13:19
+further and instead of just printing the
+13:21
+employee I'll actually print
+13:22
+the employee full-name okay so I think
+13:25
+that we are finished with our manager
+13:27
+class so we have our own init method
+13:29
+here which it'll accept a first name
+13:32
+last name and pay and also a list of
+13:34
+employees that this manager supervises
+13:37
+and then we have the ability to add
+13:40
+employees to that list
+13:41
+remove employees from that list and to
+13:43
+print out all the employees from that
+13:45
+list so now let's see if this works so
+13:48
+I'm just going to comment out these
+13:50
+lines here and now I'm going to create a
+13:53
+new manager and I'll call this manager
+13:56
+one so now I want this to be a manager
+14:00
+and for the first name I'll do su for
+14:03
+the last name I'll do Smith will say
+14:05
+that the pay is ninety thousand and
+14:07
+let's say that she supervises this first
+14:11
+developer here so now let's make sure
+14:13
+that this manager was successfully
+14:15
+created and that we have all of the
+14:19
+attributes and methods available that it
+14:21
+would have inherited from that employee
+14:23
+class so let's go ahead and print out
+14:25
+this managers email address so now if I
+14:29
+go ahead and print this out you can see
+14:32
+that the email address was set correctly
+14:33
+but now we also added down all of this
+14:37
+extra functionality so let's see if we
+14:40
+can print out all the employees that
+14:43
+this manager supervises so I'll do
+14:45
+manager dot print employees and if I go
+14:50
+ahead and run that then you can see that
+14:52
+it prints out the full name of the one
+14:54
+employee that they currently supervise
+14:57
+and I can add to that list of employees
+15:01
+so here I'll just say manager one dot
+15:04
+employee and I'll pass in this second
+15:08
+developer here before we print out that
+15:10
+list of employees now if I print that
+15:12
+out you can see that now they are
+15:14
+supervising two employees and we also
+15:17
+have the ability to remove employees so
+15:19
+I will remove our first employee here
+15:22
+from their list of people who they
+15:25
+supervise so now if I save that and run
+15:28
+it you can see that that first developer
+15:30
+was removed from that list and they only
+15:32
+have the second developer in that list
+15:35
+so just like with our devel
+15:36
+upper-class you can see how useful this
+15:38
+actually is because all of the code in
+15:41
+here is specific to what we want for a
+15:43
+manager and in our developer class it's
+15:46
+specific to what we want for a developer
+15:48
+and we're inheriting all of this common
+15:50
+code from employee so we really get to
+15:53
+reuse our code nicely here if we use
+15:55
+subclass incorrectly
+15:57
+okay so now I'm just going to go ahead
+15:58
+and remove all of this code here now I
+16:02
+know that this video is getting a little
+16:04
+long but I want to show you a couple
+16:05
+more quick things here so python has
+16:08
+these two built-in functions called is
+16:10
+instance and is subclass so is instance
+16:14
+will tell us if an object is an instance
+16:17
+of a class so for example if I need to
+16:21
+print this out I can print out whether
+16:24
+manager one is an instance of manager
+16:29
+and if I print that out you can see that
+16:32
+it prints true now if I was to check
+16:34
+whether the manager is an instance of an
+16:37
+employee then you can see that that is
+16:39
+also true but if I check if manager one
+16:42
+is an instance of a developer then that
+16:46
+returns false because even though
+16:49
+developer and manager both inherit from
+16:51
+employee they aren't part of each
+16:53
+other's inheritance so along those same
+16:55
+lines we have this is subclass function
+16:59
+and is subclass will tell us if a class
+17:02
+is a subclass of another so for example
+17:05
+I could do is developer a subclass of
+17:10
+employee and if I run that you can see
+17:13
+that it returns true and if I do is
+17:15
+manager a subclass of employee if I run
+17:19
+that you can see that that returns true
+17:20
+also but if I say is manager a subclass
+17:25
+of developer then that will return false
+17:28
+so those built in is instance and is
+17:32
+subclass functions may come and use when
+17:35
+you're experimenting with inheritance on
+17:36
+your own ok so very last thing I always
+17:39
+like to show you all practical
+17:41
+real-world examples of this stuff
+17:42
+whenever I can and one of the easier
+17:44
+examples I found up sub-classing was
+17:46
+within the exceptions module of this
+17:49
+Python whisky
+17:50
+library so this is a really popular
+17:52
+library and used in a lot of different
+17:54
+projects so if we look here we can see
+17:56
+that this HTTP exception class inherits
+17:59
+from this base exception and they say
+18:03
+here that this HTTP HTTP exception is
+18:06
+the base class for all HTTP exceptions
+18:10
+now if we scroll down here you can see
+18:12
+this is that this has a lot of code in
+18:15
+this class but once we get far enough
+18:18
+along we can see that we have some other
+18:21
+classes here that inherit from that base
+18:23
+HTTP exception class so here we have
+18:26
+this bad request that inherits from HTTP
+18:30
+exception and since it inherits from
+18:32
+that base class it gets all of that code
+18:35
+that we just solve for free and now it
+18:38
+can just simply modify this return code
+18:41
+and a description
+18:42
+without needing to rewrite all of that
+18:44
+code from the parent class so you can
+18:46
+see how using inheritance like this
+18:48
+would be extremely useful as your
+18:50
+projects grow in size and makes
+18:52
+everything much easier to maintain okay
+18:55
+so I think that is going to do it for
+18:56
+this video in the next video we will go
+18:59
+over special and magic methods and how
+19:01
+to use those within classes but if you
+19:03
+do have any questions about what we
+19:05
+covered in this video then feel free to
+19:07
+ask in the comment section below and
+19:08
+I'll do my best to answer those now if
+19:10
+you enjoy these tutorials and would like
+19:11
+to support them then there are several
+19:13
+ways you can do that the easiest way is
+19:15
+to simply like the video and give it a
+19:16
+thumbs up and also it's a huge help to
+19:18
+share these videos with anyone who you
+19:20
+think would find them useful and if you
+19:21
+have the means you can contribute
+19:22
+through patreon and there's a link to
+19:24
+that page in a description section below
+19:26
+be sure to subscribe for future videos
+19:28
+and thank you all for watching 
