@@ -10,8 +10,8 @@ The notes are arranged in jupyter notebooks with the respective video names, whe
 2. Class Variables [[video link]](https://youtu.be/BJ-VvGyQxho) [[notebook]](https://github.com/faizankshaikh/Notes_PythonOOPTutorial/blob/master/notebooks/Python%20OOP%20Tutorial%202%20-%20Class%20Variables.ipynb) [[transcript]](https://github.com/faizankshaikh/Notes_PythonOOPTutorial/blob/master/transcripts/class_variables.txt)
 3. classmethods and staticmethods [[video link]](https://youtu.be/rq8cL2XMM5M) [[notebook]](https://github.com/faizankshaikh/Notes_PythonOOPTutorial/blob/master/notebooks/Python%20OOP%20Tutorial%203%20-%20Classmethods%20and%20Staticmethods.ipynb) [[transcript]](https://github.com/faizankshaikh/Notes_PythonOOPTutorial/blob/master/transcripts/classmethods_and_staticmethods.txt)
 4. Inheritance and Creating Subclasses [[video link]](https://youtu.be/RSl87lqOXDE) [[notebook]](https://github.com/faizankshaikh/Notes_PythonOOPTutorial/blob/master/notebooks/Python%20OOP%20Tutorial%204%20-%20Inheritance%20and%20Creating%20Subclasses.ipynb) [[transcript]](https://github.com/faizankshaikh/Notes_PythonOOPTutorial/blob/master/transcripts/inheritance_and_creating_subclasses.txt)
-5. Special (Magic/Dunder) Methods 
-6. Property Decorators - Getters, Setters and Deleters 
+5. Special (Magic/Dunder) Methods [[video link]](https://youtu.be/3ohzBxoFHAY) [[notebook]](https://github.com/faizankshaikh/Notes_PythonOOPTutorial/blob/master/notebooks/Python%20OOP%20Tutorial%205%20-%20Special%20Methods) [[transcript]](https://github.com/faizankshaikh/Notes_PythonOOPTutorial/blob/master/transcripts/special_methods.txt)
+6. Property Decorators - Getters, Setters and Deleters [[video link]](https://youtu.be/jCzT9XFZ5bw) [[notebook]](https://github.com/faizankshaikh/Notes_PythonOOPTutorial/blob/master/notebooks/Python%20OOP%20Tutorial%206%20-%20Property%20Decorators) [[transcript]](https://github.com/faizankshaikh/Notes_PythonOOPTutorial/blob/master/transcripts/property_decorators.txt)
 
 ## Disclaimer
 

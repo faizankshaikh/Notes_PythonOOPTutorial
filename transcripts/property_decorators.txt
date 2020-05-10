@@ -1,0 +1,476 @@
+00:00 
+hey there how's it going everybody in
+00:01
+this video we're going to be learning
+00:02
+how to use the property decorator now
+00:05
+this allows us to give our class
+00:06
+attributes getter setter and a leader
+00:08
+functionality like may have seen in some
+00:10
+other languages so if you've been
+00:12
+following along with my object-oriented
+00:13
+video so far you may have noticed that I
+00:16
+stripped down the employee class here a
+00:17
+bit and that's just so we can focus on
+00:19
+these attributes without the other code
+00:21
+getting in the way okay so so far with
+00:23
+our employee class some of you may have
+00:25
+noticed that our email attribute depends
+00:27
+on our first name and our last name so
+00:29
+when we create our employee object here
+00:32
+it comes into our and NIP method and it
+00:35
+sets the first name the last name then
+00:37
+it sets the email to our first name dot
+00:40
+last name @ email com and also we have
+00:43
+this full name method down here which
+00:45
+prints out the current first-name and
+00:47
+lastname together so if I go down here
+00:50
+and create this simple employee object
+00:53
+and then print out the first name email
+00:55
+and full name you can see that all of
+00:58
+these are what we would expect so the
+00:59
+first name is John the email is John
+01:01
+Smith at email comm and the full name is
+01:04
+both of those together so let's go here
+01:07
+and now let's set our employee dot
+01:10
+first-name I'm just gonna set that first
+01:13
+name equal to Jim and rerun this so you
+01:16
+can see down here that the first name
+01:18
+was changed to Jim but the email still
+01:21
+has our old first-name now the full name
+01:24
+method here doesn't have this problem
+01:25
+because every time we run the full name
+01:28
+method it comes in here and grabs the
+01:30
+current first-name and lastname so what
+01:33
+if the people who are using our class
+01:34
+said that we need to fix this so they
+01:36
+don't want to change the email every
+01:38
+time they change the first name or the
+01:39
+last name so they want us to make it to
+01:41
+where it updates the email automatically
+01:43
+when either the first name or the last
+01:45
+name has changed now your first thought
+01:47
+there might be to just create an email
+01:49
+method just like we did here with our
+01:51
+full name but the problem with that is
+01:54
+that it will break the code for everyone
+01:56
+currently using the class so they would
+01:58
+have to go through and change every
+02:00
+instance of the email attribute with an
+02:02
+email method now this is usually where
+02:04
+people from other languages like Java
+02:06
+will bring up the benefits of getter and
+02:08
+setter methods and it's a good point
+02:10
+because this is where getter and setter
+02:12
+really come in handy but we have the
+02:14
+ability to do this within Python using
+02:16
+the property decorator now the property
+02:19
+decorator allows us to define a method
+02:21
+but we can access it like an attribute
+02:23
+so for example let's go ahead and pull
+02:26
+this email attribute out into a method
+02:28
+similar to our full-name method so I'm
+02:31
+actually just going to copy the full
+02:34
+name method here and paste this in and
+02:37
+I'm going to call this email but instead
+02:43
+of printing this out like the first name
+02:44
+I'm going to print this out like our
+02:46
+email would show up so the first name
+02:49
+dot last name @ email comm and so now
+02:54
+I'm just going to come up here and
+02:55
+remove our email attribute and save that
+02:58
+so right now our email method is similar
+03:01
+to our full-name method so each time we
+03:03
+ran it it would get the current first
+03:05
+name and last name but we'd also have to
+03:07
+go through and change our code to where
+03:10
+every email attribute is a method call
+03:12
+so for example when I'm printing this
+03:14
+out down here out instead have to go
+03:16
+down here and add parentheses to this
+03:18
+dot email and so now if I run this here
+03:21
+you can see that this solved our problem
+03:23
+where it set our email address to the
+03:26
+new first name but this also means that
+03:28
+anyone using our class would have to
+03:30
+change their code also so that's not
+03:33
+what we want so let's go ahead and take
+03:35
+these parentheses back off so in order
+03:38
+to continue accessing email like an
+03:40
+attribute I can just add a property
+03:43
+decorator above this method so I'm going
+03:46
+to go ahead and add this on so this is
+03:48
+just at property and just by making that
+03:51
+small change now if I run our code then
+03:54
+you can see that that works so we're
+03:57
+defining our email in our class like
+03:59
+it's a method but we're able to access
+04:01
+it like an attribute and we could do
+04:04
+this just as easily with full name as
+04:06
+well so if I was to add this property
+04:09
+decorator onto full name and then take
+04:12
+off these parentheses there and run that
+04:15
+then you can see that that works also
+04:17
+now I know that goes against what I said
+04:19
+about changing the code but this is just
+04:21
+an example and I also wanted to use the
+04:23
+full name to show you an example of
+04:25
+you can use a setter so let's say for
+04:27
+example that we wanted the ability to
+04:29
+say employee one dot full name and set
+04:34
+it equal to let's just say quarry
+04:36
+Schaefer and let's say that by setting
+04:38
+this full name that we also wanted it to
+04:41
+change our first name our last name and
+04:43
+our email and right now we can't do this
+04:46
+so if we only have the full name with
+04:48
+the property decorator and I try to set
+04:51
+this like this if I run this here you
+04:54
+can see that we get an error there and
+04:56
+if we look at the error it says that we
+04:58
+can't set the attribute okay so for now
+05:01
+I'm just going to comment this out and
+05:03
+rerun that so in order to do what we
+05:06
+were trying to do there we're going to
+05:08
+have to use a setter and that's going to
+05:10
+be another decorator now this might look
+05:12
+a little strange but the name that we're
+05:14
+going to use for our setter is going to
+05:16
+be the name of the property so in this
+05:19
+case it's going to be full name so I'm
+05:21
+going to say at full name dot setter and
+05:24
+then underneath this decorator we just
+05:27
+need to create another method with the
+05:29
+same name so this is going to be a
+05:31
+method with full name this is going to
+05:34
+take in self and I'm going to call this
+05:36
+name now this name value here is the
+05:39
+value that we are trying to set so in
+05:41
+this case down here it would be this
+05:43
+full name here so I'm going to come in
+05:46
+here and we want to set the first name
+05:48
+and the last name using this full name
+05:51
+here so what we can do is we can just
+05:54
+split that name that we pass in on the
+05:58
+space separator so I'll say first last
+06:01
+is equal to name not split will split on
+06:05
+that space so that's going to split that
+06:07
+name into two parts and the first part
+06:10
+before the space will be the first name
+06:12
+and the second part after the space will
+06:14
+be the last name so now we want to set
+06:18
+our employees first name and last name
+06:20
+equal to those values so I can just say
+06:22
+self dot first is equal to first and
+06:27
+self dot last is equal to last so now
+06:32
+that I have that setter if I come down
+06:35
+here and uncomment out this line that
+06:37
+gave us an error before
+06:38
+and rerun that then you can see that
+06:41
+that works so what happened here is that
+06:43
+whenever we set this full name equal to
+06:45
+this name it came into our setter here
+06:48
+and it parsed the names from that value
+06:51
+that we set and then it set our first
+06:53
+name and last name and since we set the
+06:56
+first name and last name even when we
+06:58
+printed out our email it came in here
+07:01
+and grabbed those correct values they
+07:04
+can also make a deleter in the same way
+07:06
+so let's say that if I was to delete the
+07:08
+full name of our employee that I wanted
+07:10
+to run some kind of cleanup code so to
+07:12
+do this I'm just going to copy our
+07:14
+setter here and paste this in below but
+07:19
+instead of a setter this is going to be
+07:21
+a leader for full name the leader and
+07:24
+this won't be accepting any other values
+07:27
+other than self and I'll just go ahead
+07:29
+and remove these here and just so that
+07:32
+we can see this doing something within
+07:34
+here I'm just going to say delete name
+07:38
+and I'm also just going to do a self dot
+07:42
+first is equal to none and a self dot
+07:47
+last is equal to none so the deleter
+07:51
+code there is what gets run whenever we
+07:53
+delete an attribute so at the very
+07:55
+bottom here if I do a delete of employee
+07:59
+one dot full name and run that then you
+08:04
+can see here that it came in and ran
+08:06
+that print statement that was in our
+08:08
+deleter and also set our first name and
+08:11
+last name equal to none values okay so I
+08:14
+think that's going to do it for this
+08:15
+video I hope you got some ideas for how
+08:17
+you can use the property decorator
+08:18
+within your classes now this is a nice
+08:20
+feature because it allows us to access
+08:22
+attributes without putting getters and
+08:25
+setters everywhere but if we need that
+08:27
+functionality then it's easy to add in
+08:29
+with the property decorator and if you
+08:31
+do this correctly then people using our
+08:33
+class won't even need to change any of
+08:35
+their code because they'll still be able
+08:37
+to access those attributes in the same
+08:39
+way that they did before now that wasn't
+08:41
+exactly the case in our example here
+08:42
+because I changed the full name method
+08:45
+into an attribute but only did that
+08:46
+because I wanted to show how we could
+08:48
+use the full name as a setter to change
+08:50
+the first name and the last name
+08:52
+so you won't want to be careful with
+08:54
+changes like that if other people are
+08:55
+already using your classes so if anyone
+08:58
+has any questions about what we cover in
+08:59
+this video then feel free to ask in the
+09:01
+comment section below and I'll do my
+09:02
+best to answer those if you enjoy these
+09:04
+tutorials on the bike to sport then
+09:06
+there are several ways you can do that
+09:07
+now the easiest ways to simply like the
+09:09
+video and give it a thumbs up and also
+09:10
+it's a huge help to share these videos
+09:12
+with anyone who you think would find
+09:13
+them useful and if you have the means
+09:15
+you can contribute through patreon and
+09:16
+there's a link to that page in the
+09:18
+description section below
+09:19
+be sure to subscribe for future videos
+09:20
+and thank you all for watching 

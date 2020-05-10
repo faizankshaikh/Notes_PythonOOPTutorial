@@ -1,0 +1,703 @@
+00:00
+hey everybody how's it going in this 
+00:01
+video we'll be learning about special
+00:03
+methods that we can use within our
+00:04
+classes and some people call these magic
+00:06
+methods now these special methods allow
+00:08
+us to emulate some built-in behavior
+00:10
+within Python and it's also how we
+00:12
+implement operator overloading so what I
+00:14
+mean by that is for example when we add
+00:16
+two integers together so down here I'm
+00:18
+going to print out one plus two and when
+00:21
+we add two strings together so I'm going
+00:23
+to print out a plus B if I run this code
+00:25
+then you can see that the behavior when
+00:28
+we add two strings together is different
+00:30
+than when we add two integers together
+00:32
+so the strings were just concatenated
+00:33
+and the integers were actually added
+00:35
+together so depending on what objects
+00:37
+you're working with the addition
+00:39
+actually has different behavior and also
+00:42
+if we were to print out our employee
+00:45
+instance here then you can see that we
+00:47
+just get this vague employee object and
+00:49
+it would be nice if we could change this
+00:50
+behavior to print out something a little
+00:52
+bit more user-friendly and that's what
+00:54
+these special methods are going to allow
+00:55
+us to do so by defining our own special
+00:58
+methods we'll be able to change some of
+00:59
+this built-in behavior and operations so
+01:02
+these special methods are always
+01:04
+surrounded by double underscores so a
+01:06
+lot of people call these double
+01:07
+underscores dunder so if you ever hear
+01:09
+someone say something like dunder an it
+01:12
+then they mean an it surrounded by
+01:14
+double underscores so speaking of dunder
+01:16
+init that is a special method that we've
+01:18
+already been using and are familiar with
+01:20
+and it's probably the first and most
+01:22
+common special method that people use
+01:23
+when working with classes so just like
+01:26
+we learned in previous videos this
+01:28
+special dunder init method is implicitly
+01:30
+called when we create our employee
+01:33
+objects here and it comes in and sets
+01:35
+all of our attributes for us so let's
+01:37
+take a look at some other common special
+01:39
+methods so two more common special
+01:41
+methods that we should probably always
+01:43
+implement are this dunder our EPR and
+01:46
+under STR now these are what are
+01:49
+implicitly called
+01:51
+anytime we run our EPR on one of our
+01:54
+objects or STR
+01:57
+on one of our objects and these are what
+01:59
+we're going to use to fix our problem of
+02:01
+printing out this vague employee object
+02:03
+when we printed out our employee
+02:05
+instance here now I have an earlier
+02:07
+video on the difference between these
+02:09
+two methods but in short our EPR is met
+02:13
+to be an unambiguous representation of
+02:16
+the object and should be used for
+02:17
+debugging and logging and things like
+02:19
+that it's really meant to be seen by
+02:21
+other developers and STR is meant to be
+02:24
+more of a readable representation of an
+02:27
+object and is meant to be used as a
+02:29
+display to the end-user so let's go
+02:31
+ahead and write code for these and take
+02:33
+a look at the difference so first we
+02:35
+want to be sure to at least have an AR
+02:38
+EPR method because if we have this
+02:41
+without an STR
+02:43
+then calling STR on an employee we'll
+02:46
+just use the re PR as a fallback so it's
+02:49
+good to have this as a minimum now a
+02:51
+good rule of thumb when creating this
+02:52
+method is to try to display something
+02:54
+that you can copy and paste back in the
+02:56
+Python code that would recreate that
+02:58
+same object so for example here if I was
+03:02
+to come in here and return so we would
+03:06
+want this to be something that we could
+03:07
+use to recreate this object so I'm going
+03:10
+to say employee and then in quotes I'm
+03:13
+just going to put a placeholder there
+03:15
+and I'm going to do quotes again for the
+03:18
+last name and then I'll do another
+03:21
+placeholder for the pay and then I'll
+03:24
+just go ahead and create a format string
+03:27
+here and let's do self dot first self
+03:31
+dot last and self dot pay so again what
+03:35
+I was doing here is that I was trying to
+03:37
+return a string that I can use to
+03:39
+recreate the object so to show you what
+03:41
+I mean let's go ahead and print out this
+03:43
+employee one again so first I'm just
+03:45
+going to go ahead and comment out these
+03:47
+lines here now remember when I printed
+03:49
+out this instance before then we got
+03:52
+this vague employee output here but now
+03:56
+whenever I rerun this with this re PR
+03:58
+method now you can see that it returned
+04:00
+the string that we specified in our APR
+04:04
+method and you can see how if I wanted
+04:06
+to recreate this employee object then I
+04:09
+can just copy this output and it's the
+04:12
+exact same thing that we used to create
+04:15
+that employee to begin with so now let's
+04:16
+go ahead and fill in the code for our
+04:18
+dunder string method so this is meant to
+04:22
+be more readable for an end user so this
+04:24
+is a little bit more arbitrary
+04:25
+but to print out this employee let's see
+04:28
+I'll just say something like I'll do a
+04:30
+return and I'll do a placeholder for
+04:33
+their full name and a placeholder for
+04:35
+their email and then I'll just go ahead
+04:38
+and pass those in so I'll do self dot
+04:41
+full name and then I'll also do self dot
+04:45
+email so now if I print out this
+04:49
+employee object again now it should use
+04:51
+that dunder STR method instead so now
+04:54
+when we print out that employee object
+04:56
+its printing out the employee's full
+04:58
+name and email address now we can still
+05:01
+access the re PR and the STR
+05:03
+specifically if I was to go in here and
+05:06
+print both of these out and then let me
+05:09
+go ahead and close those off and I'll
+05:12
+comment out that now really when we run
+05:15
+this re PR and STR what's actually going
+05:18
+on in the background is that it's
+05:20
+directly calling those special methods
+05:23
+so let me go ahead and copy these out
+05:26
+and instead it's actually calling this
+05:29
+double underscore re PR and then if I go
+05:33
+ahead and grab this then I'll also print
+05:35
+out the STR and if I run that then you
+05:40
+can see that we got the exact same
+05:42
+object by calling those directly so
+05:44
+these two special methods allow us to
+05:46
+change how our objects are printed and
+05:48
+displayed now to be honest unless you're
+05:51
+writing some more complicated classes
+05:53
+these three methods of a knit re PR and
+05:57
+STR will be the ones that you'll
+06:00
+probably use most often but let's go
+06:02
+ahead and look at a few more just so we
+06:04
+can get an idea of how these work now
+06:06
+there are also a lot of special methods
+06:08
+for arithmetic so like we saw before
+06:11
+when we added those two integers
+06:14
+together so if I was to say print 1 plus
+06:17
+print 2 now if I go ahead and run this
+06:19
+now what this is actually doing is it's
+06:22
+using a special method in the background
+06:23
+called dunder add so I can actually
+06:26
+access this directly if I use the
+06:30
+integer object I can do dunder add and I
+06:34
+can pass in arguments of 1 & 2 so if I
+06:38
+run that
+06:38
+and you can see that that gives us the
+06:40
+same result and strings are actually
+06:42
+using their own dunder add method so if
+06:45
+I use a string object and do a dunder ed
+06:49
+and pass in a character of a and a
+06:53
+character of B and run that then you can
+06:56
+see that the strings dunder add actually
+06:59
+can cats those together so it can
+07:02
+actually customize how addition works
+07:03
+for our objects by creating that dunder
+07:07
+add method so let's say that with our
+07:09
+employee class we wanted to be able to
+07:11
+calculate total salaries just by adding
+07:13
+employees together now that's kind of a
+07:16
+contrived example because if I was to
+07:17
+make a class like that in real life then
+07:19
+it's probably better to be explicit
+07:21
+about what you're adding together but
+07:22
+just for the sake of this example let's
+07:24
+go ahead and see how we do this and
+07:26
+we'll look at some better real-world
+07:27
+examples from the standard library here
+07:30
+in just a minute so if I wanted to add
+07:32
+two employees together and have the
+07:35
+result be their combined salaries then
+07:37
+we're going to have to create a dunder
+07:40
+add method so I'll go ahead and do that
+07:42
+and this is going to take in self which
+07:45
+is going to be what's on the left side
+07:46
+of the addition and other which will be
+07:49
+on the right side of the addition and
+07:50
+for this example we're just going to
+07:52
+assume that these are both employee
+07:54
+objects so we want to return self dot
+07:58
+pay and added two other dot pay so when
+08:03
+we add two employees together it's going
+08:05
+to give us their combined pay added
+08:08
+together so let's go ahead and see if
+08:11
+this works
+08:11
+so here I can just print out employee 1
+08:15
+plus employee 2 and if I go ahead and
+08:19
+run that you can see that when we added
+08:21
+these two employee objects together that
+08:23
+it gave us their combined salaries now
+08:26
+if we didn't have this dunder add method
+08:28
+and I copy and I comment out that then
+08:30
+you can see if I try to run that then it
+08:33
+gives us an error here and it says that
+08:34
+it doesn't know how to add these two
+08:36
+employees together so if we put that
+08:38
+back in then we are telling it how we
+08:41
+want to add these employees together so
+08:43
+if I run that then you can see that that
+08:45
+works now there are all kinds of these
+08:47
+special methods for arithmetic and if I
+08:49
+go to the documentation here you
+08:52
+see that there are special methods for
+08:54
+subtracting multiplying dividing and
+08:58
+plenty of others so let's go ahead and
+09:00
+run through one more example here before
+09:02
+we look at some of these real-world
+09:04
+examples in the standard library so if
+09:06
+you have ever used the le n function to
+09:09
+check the length of a list or a string
+09:11
+now this is also a special method so if
+09:14
+I wanted to print the length of a string
+09:16
+so for example I could say print le n of
+09:20
+the string test and let me go ahead and
+09:24
+get rid of that print statement there if
+09:26
+I run that you can see that that string
+09:28
+is four characters long now this is also
+09:30
+just using a special dunder method in
+09:32
+the background so if instead I was to
+09:35
+print test and on that string object I
+09:39
+could actually specifically run that
+09:41
+dunder length method and if I run that
+09:44
+then you can see that we get the same
+09:46
+result so if we want this Len function
+09:48
+to work on our objects then we'll have
+09:51
+to create a dunder Len method so let's
+09:55
+say that for example when we ran len on
+09:58
+our employee instance that we wanted it
+10:00
+to return the total number of characters
+10:02
+and their full name and maybe this could
+10:05
+be useful if someone's writing a
+10:06
+document and needs to know how many
+10:08
+characters the employees name will take
+10:10
+up so I can create this dunder Len
+10:13
+method just by saying def dunder Lynn
+10:16
+and this is only going to take in self
+10:19
+and now for this I just want to return
+10:22
+the length of self dot full name so now
+10:27
+we can actually use this Len function on
+10:29
+our objects so if I was to pass in
+10:33
+employee one here and print that out you
+10:36
+can see that we get 13 characters when
+10:38
+their full name is printed out now there
+10:40
+are a ton of other special methods that
+10:42
+we could go over so you can use these to
+10:44
+customize how objects are compared how
+10:47
+they check for equality and a lot of
+10:49
+other useful stuff that we're not going
+10:51
+to be able to fit into one video but if
+10:53
+you go to the documentation then you can
+10:55
+see a short description of all the ones
+10:57
+that you can use and I'll put a link to
+10:59
+that page in the description section
+11:00
+below so now let's go ahead and take a
+11:02
+look at some real-world examples in the
+11:04
+standard library so
+11:05
+can see how useful these can be in real
+11:07
+code so I've got the date/time module
+11:09
+pulled up here so in the day time module
+11:12
+I'm just going to do a search here for
+11:14
+dunder add so the first result that we
+11:18
+land on here is from the time delta
+11:19
+class and you can see that they are
+11:22
+checking if the other object that
+11:24
+they're adding against is another time
+11:27
+Delta and to add those together they are
+11:30
+just returning another time Delta with
+11:32
+the days seconds and microseconds added
+11:35
+up from both of those and if the other
+11:37
+object isn't a time Delta and it's going
+11:39
+to come down here to this return not
+11:41
+implemented now that's something that we
+11:43
+didn't go over in our examples but
+11:45
+basically when they return not
+11:47
+implemented they don't want to throw an
+11:49
+error because the other object might
+11:51
+know how to handle that operation so
+11:53
+returning not implemented is a way to
+11:56
+fall back on the other object to see if
+11:59
+it knows how to handle the operation and
+12:01
+if none of them know how to handle it
+12:02
+then it will eventually throw an error
+12:04
+okay so let's go ahead and take another
+12:06
+look at another example so I'm going to
+12:09
+search here for the date class so now
+12:12
+we're here within the date class and I'm
+12:15
+just going to scroll down here a little
+12:17
+bit and here we can see that they have
+12:19
+their dunder our EPR method and you can
+12:22
+see that they give some examples of what
+12:24
+the output should look like and just
+12:26
+like we talked about earlier it looks
+12:29
+just like how you would create a date
+12:31
+object and if we scroll down a little
+12:33
+bit further here now here we can see
+12:36
+that they're setting their dunder string
+12:38
+method equal to the ISO format function
+12:41
+so when you print the date it'll
+12:44
+actually print out the ISO format so
+12:46
+that's pretty interesting
+12:47
+so you can see how learning about these
+12:49
+things makes it a little less
+12:50
+intimidating to look around and the
+12:52
+standard library and it makes it a
+12:53
+little easier to just be able to look
+12:55
+under the hood and see what's going on
+12:56
+now don't get me wrong there's a lot of
+12:58
+complex code in here but learning how
+13:00
+these special methods work is a big step
+13:03
+towards better understanding a lot of
+13:05
+what's going on in here okay so I think
+13:07
+that is going to do it for this video I
+13:08
+hope this gave you a better idea of how
+13:10
+these special methods work and what's
+13:12
+going on in the background when you're
+13:13
+performing some of these operations but
+13:16
+if you do have any questions about what
+13:17
+we covered in the video then just feel
+13:18
+free to ask in the comments section
+13:20
+below and I'll do my best to answer
+13:21
+those if you enjoyed this tutorial I'd
+13:23
+like to support them then there are
+13:24
+several ways you can do that the easiest
+13:26
+way is to simply like the video and give
+13:27
+it a thumbs up and also it's a huge help
+13:29
+to share these videos with anyone who
+13:30
+you think would find them useful and if
+13:32
+you have the means you can contribute
+13:33
+through patreon and there's a link to
+13:35
+that page in the description section
+13:36
+below be sure to subscribe for future
+13:38
+videos and thank you all for watching
+
